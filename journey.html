@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plan Your Journey | SafeJourney AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            SafeJourney <span>AI</span>
+        </div>
+
+        <a href="index.html" class="nav-btn">
+            ← Back Home
+        </a>
+
+    </nav>
+
+
+    <main class="journey-page">
+
+        <div class="journey-heading">
+
+            <div class="badge">
+                ✦ SAFETY JOURNEY
+            </div>
+
+            <h1>
+                Plan your journey.<br>
+                <span>We'll watch over it.</span>
+            </h1>
+
+            <p>
+                Set your destination and expected arrival time.
+                SafeJourney AI will monitor your journey and help
+                you confirm your safe arrival.
+            </p>
+
+        </div>
+
+
+        <div class="journey-form">
+
+            <div class="form-header">
+
+                <div class="form-icon">
+                    ✦
+                </div>
+
+                <div>
+                    <h2>Journey Details</h2>
+                    <p>Tell us where you're going.</p>
+                </div>
+
+            </div>
+
+
+            <label>Starting Point</label>
+
+            <div class="input-box">
+                <span>●</span>
+                <input
+                    type="text"
+                    id="startPoint"
+                    placeholder="Where are you starting from?"
+                >
+            </div>
+
+
+            <label>Destination</label>
+
+            <div class="input-box">
+                <span>⌖</span>
+                <input
+                    type="text"
+                    id="destination"
+                    placeholder="Where are you going?"
+                >
+            </div>
+
+
+            <div class="form-row">
+
+                <div>
+                    <label>Departure Time</label>
+
+                    <input
+                        class="normal-input"
+                        type="time"
+                        id="departureTime"
+                    >
+                </div>
+
+                <div>
+                    <label>Expected Arrival</label>
+
+                    <input
+                        class="normal-input"
+                        type="time"
+                        id="arrivalTime"
+                    >
+                </div>
+
+            </div>
+
+
+            <label>Trusted Emergency Contact</label>
+
+            <div class="input-box">
+                <span>♙</span>
+                <input
+                    type="tel"
+                    id="contact"
+                    placeholder="Enter phone number"
+                >
+            </div>
+
+
+            <div class="privacy-note">
+                🔒 Your journey information is private and used only
+                for your safety.
+            </div>
+
+
+            <button class="begin-btn" onclick="beginJourney()">
+                Start Safe Journey
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function beginJourney() {
+
+            const start =
+                document.getElementById("startPoint").value;
+
+            const destination =
+                document.getElementById("destination").value;
+
+            const departure =
+                document.getElementById("departureTime").value;
+
+            const arrival =
+                document.getElementById("arrivalTime").value;
+
+            const contact =
+                document.getElementById("contact").value;
+
+
+            if (!start || !destination || !departure || !arrival || !contact) {
+
+                alert("Please fill in all journey details.");
+
+                return;
+            }
+
+
+            localStorage.setItem(
+                "journeyStart",
+                start
+            );
+
+            localStorage.setItem(
+                "journeyDestination",
+                destination
+            );
+
+            localStorage.setItem(
+                "journeyDeparture",
+                departure
+            );
+
+            localStorage.setItem(
+                "journeyArrival",
+                arrival
+            );
+
+            localStorage.setItem(
+                "journeyContact",
+                contact
+            );
+
+
+            alert("Your Safe Journey has been planned!");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
